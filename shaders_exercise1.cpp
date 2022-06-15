@@ -1,25 +1,25 @@
-#include "shader.h"
- 
+#include "shader_s.h"
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
-// settings
+// 窗口大小
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
 int main()
 {
+    //初始化GLFW
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+    //配置GLFW
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);//主版本号
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);//次版本号
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);//使用核心模式
 #ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);//Mac OS X系统需要额外配置
 #endif
 
-    // glfw window creation
-    // --------------------
+    //创建窗口（宽、高、标题名）
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
@@ -28,81 +28,68 @@ int main()
         return -1;
     }
     glfwMakeContextCurrent(window);
+
+    //窗口注册回调函数，窗口尺寸大小变化时触发回调
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
+    //初始化 GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
 
-    // build and compile our shader program
-    // ------------------------------------
-    Shader ourShader("vertex.glsl", "fragment.glsl"); // you can name your shader files however you like
+    // 创建编译着色器程序
+    Shader ourShader("3.4.shader.vs", "3.4.shader.fs");
 
-    // set up vertex data (and buffer(s)) and configure vertex attributes
-    // ------------------------------------------------------------------
+    // 初始化顶点坐标及颜色
     float vertices[] = {
-        // positions         // colors
-         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
-         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top 
+        // 坐标         // 颜色
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // 右下
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // 左下
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // 上 
     };
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    // position attribute
+    // 顶点属性
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    // color attribute
+    // 颜色属性
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-    // glBindVertexArray(0);
-
-
-    // render loop
-    // -----------
+    // 渲染循环
     while (!glfwWindowShouldClose(window))
     {
-        // input
-        // -----
+        // 输入检查
         processInput(window);
 
-        // render
-        // ------
+        // 清屏
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // render the triangle
+        //激活着色器程序
         ourShader.use();
+        //绑定VAO
         glBindVertexArray(VAO);
+        // 绘制三角形
         glDrawArrays(GL_TRIANGLES, 0, 3);
-
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
+        //交换缓冲区
         glfwSwapBuffers(window);
+        //检查有没有触发事件（键盘输入、鼠标移动等）、更新窗口状态，并调用对应的回调函数
         glfwPollEvents();
     }
 
-    // optional: de-allocate all resources once they've outlived their purpose:
-    // ------------------------------------------------------------------------
+    //释放资源
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-
-    // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
 }

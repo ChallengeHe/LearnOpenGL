@@ -22,27 +22,42 @@
     <Filter Include="源文件\1.getting_started\1.2.hello_window_clear">
       <UniqueIdentifier>{3cf8309d-6bb4-43ee-ac38-e421d2493f5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\1.getting_started\2.1.hello_trangle">
+      <UniqueIdentifier>{c0806e4d-e29e-44a5-afe7-8d64e42c7d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\2.2.hello_trangle_indexed">
+      <UniqueIdentifier>{26b0ef1b-1deb-42cf-9445-948d9c33cb6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\2.3.hello_trangle_exercise1">
+      <UniqueIdentifier>{a0a19125-fa95-462b-a613-f36f28c722f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\2.4.hello_trangle_exercise2">
+      <UniqueIdentifier>{e8576212-dc55-41a7-9718-31fae5e754a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\2.5.hello_trangle_exercise3">
+      <UniqueIdentifier>{a269402f-2dbe-46d1-a8b8-2f2c1d6ff303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\3.1.shaders_uniform">
+      <UniqueIdentifier>{5ecf6377-9f4f-4f2b-8891-2754277aa78e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\3.2.shaders_interpolation">
+      <UniqueIdentifier>{f5ecf8e3-de5a-412e-b104-60186b218411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\3.3.shaders_class">
+      <UniqueIdentifier>{1c9f491a-31ef-4073-8d48-fdcf709150d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\3.4.shaders_exercise1">
+      <UniqueIdentifier>{c9b4d670-36c8-4949-8d3f-d5599ad45f3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\3.5.shaders_exercise2">
+      <UniqueIdentifier>{3367fa25-98f4-4493-b050-e89dfd603ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\3.6.shaders_exercise3">
+      <UniqueIdentifier>{584a2f9a-abf7-4b0d-b131-f682b9f476d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Download\glad\src\glad.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hello_trangle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hello_trangle_exercise_1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hello_trangle_exercise_2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hello_trangle_exercise_3.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="shaders_uniform.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="hello_window.cpp">
@@ -51,18 +66,69 @@
     <ClCompile Include="hello_window_clear.cpp">
       <Filter>源文件\1.getting_started\1.2.hello_window_clear</Filter>
     </ClCompile>
+    <ClCompile Include="hello_trangle.cpp">
+      <Filter>源文件\1.getting_started\2.1.hello_trangle</Filter>
+    </ClCompile>
+    <ClCompile Include="hello_trangle_indexed.cpp">
+      <Filter>源文件\1.getting_started\2.2.hello_trangle_indexed</Filter>
+    </ClCompile>
+    <ClCompile Include="hello_trangle_exercise1.cpp">
+      <Filter>源文件\1.getting_started\2.3.hello_trangle_exercise1</Filter>
+    </ClCompile>
+    <ClCompile Include="hello_trangle_exercise2.cpp">
+      <Filter>源文件\1.getting_started\2.4.hello_trangle_exercise2</Filter>
+    </ClCompile>
+    <ClCompile Include="hello_trangle_exercise3.cpp">
+      <Filter>源文件\1.getting_started\2.5.hello_trangle_exercise3</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders_uniform.cpp">
+      <Filter>源文件\1.getting_started\3.1.shaders_uniform</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders_interpolation.cpp">
+      <Filter>源文件\1.getting_started\3.2.shaders_interpolation</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders_class.cpp">
+      <Filter>源文件\1.getting_started\3.3.shaders_class</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders_exercise1.cpp">
+      <Filter>源文件\1.getting_started\3.4.shaders_exercise1</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders_exercise2.cpp">
+      <Filter>源文件\1.getting_started\3.5.shaders_exercise2</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders_exercise3.cpp">
+      <Filter>源文件\1.getting_started\3.6.shaders_exercise3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shader.h">
+    <ClInclude Include="shader_s.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.glsl">
-      <Filter>源文件</Filter>
+    <None Include="3.3.shader.fs">
+      <Filter>源文件\1.getting_started\3.3.shaders_class</Filter>
     </None>
-    <None Include="vertex.glsl">
-      <Filter>源文件</Filter>
+    <None Include="3.3.shader.vs">
+      <Filter>源文件\1.getting_started\3.3.shaders_class</Filter>
+    </None>
+    <None Include="3.4.shader.vs">
+      <Filter>源文件\1.getting_started\3.4.shaders_exercise1</Filter>
+    </None>
+    <None Include="3.4.shader.fs">
+      <Filter>源文件\1.getting_started\3.4.shaders_exercise1</Filter>
+    </None>
+    <None Include="3.5.shader.vs">
+      <Filter>源文件\1.getting_started\3.5.shaders_exercise2</Filter>
+    </None>
+    <None Include="3.5.shader.fs">
+      <Filter>源文件\1.getting_started\3.5.shaders_exercise2</Filter>
+    </None>
+    <None Include="3.6.shader.vs">
+      <Filter>源文件\1.getting_started\3.6.shaders_exercise3</Filter>
+    </None>
+    <None Include="3.6.shader.fs">
+      <Filter>源文件\1.getting_started\3.6.shaders_exercise3</Filter>
     </None>
   </ItemGroup>
 </Project>

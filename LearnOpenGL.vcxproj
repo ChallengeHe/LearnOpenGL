@@ -146,30 +146,51 @@
     <ClCompile Include="hello_trangle.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="hello_trangle_exercise_1.cpp">
+    <ClCompile Include="hello_trangle_exercise1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="hello_trangle_exercise_2.cpp">
+    <ClCompile Include="hello_trangle_exercise2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="hello_trangle_exercise_3.cpp">
+    <ClCompile Include="hello_trangle_exercise3.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="hello_trangle_indexed.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="hello_window.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="hello_window_clear.cpp" />
-    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="hello_window_clear.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shaders_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shaders_exercise1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shaders_exercise2.cpp" />
+    <ClCompile Include="shaders_exercise3.cpp" />
     <ClCompile Include="shaders_uniform.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shaders_interpolation.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shader.h" />
+    <ClInclude Include="shader_s.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="vertex.glsl" />
-    <None Include="fragment.glsl" />
+    <None Include="3.3.shader.vs" />
+    <None Include="3.3.shader.fs" />
+    <None Include="3.4.shader.fs" />
+    <None Include="3.4.shader.vs" />
+    <None Include="3.5.shader.fs" />
+    <None Include="3.5.shader.vs" />
+    <None Include="3.6.shader.fs" />
+    <None Include="3.6.shader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

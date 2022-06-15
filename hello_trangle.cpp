@@ -1,10 +1,12 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
+//窗口大小
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
@@ -14,6 +16,7 @@ const char* vertexShaderSource = "#version 330 core\n"
 "{\n"
 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 "}\0";
+
 const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
@@ -100,30 +103,12 @@ int	main()
 	glDeleteShader(fragmentShader);
 
 	//初始化三角形顶点坐标
-	/*
 	float vertices[] = {
 		-0.5f,-0.5f,0.0f,//左
 		0.5f,-0.5f,0.0f,//右
 		0.0f,0.5f,0.0f//上
 	};
-	*/
-	//初始化矩形顶点坐标
-	float vertices[] = {
-		0.5f, 0.5f, 0.0f,   // 右上角
-		0.5f, -0.5f, 0.0f,  // 右下角
-		-0.5f, -0.5f, 0.0f, // 左下角
-		-0.5f, 0.5f, 0.0f   // 左上角
-	};
 	
-	//创建索引数据
-	unsigned int indices[] = {
-		// 注意索引从0开始! 
-		// 此例的索引(0,1,2,3)就是顶点数组vertices的下标，
-		// 这样可以由下标代表顶点组合成矩形
-
-		0, 1, 3, // 第一个三角形
-		1, 2, 3  // 第二个三角形
-	};
 	//顶点数组对象
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
@@ -137,13 +122,6 @@ int	main()
 	//GL_DYNAMIC_DRAW：数据会被改变很多。
 	//GL_STREAM_DRAW ：数据每次绘制时都会改变。
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	//创建索引缓冲对象
-	unsigned int EBO;
-	glGenBuffers(1, &EBO);
-	//绑定索引缓冲对象
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	//给索引缓冲对象设置数据
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	//顶点数据解析
 	//1.要配置的顶点属性：layout(location = 0)
@@ -184,7 +162,6 @@ int	main()
 
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
-	glDeleteBuffers(1, &EBO);
 	glDeleteProgram(shaderProgram);
 
 	//释放资源

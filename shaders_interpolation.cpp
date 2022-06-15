@@ -108,10 +108,12 @@ int	main()
 
 	//初始化三角形顶点坐标
 	float vertices[] = {
-		-0.5f,-0.5f,0.0f,//左
-		0.5f,-0.5f,0.0f,//右
-		0.0f,0.5f,0.0f//上
+		// 位置              // 颜色
+		 0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // 右下
+		-0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // 左下
+		 0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // 顶部
 	};
+	
 	//顶点数组对象
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
@@ -126,7 +128,6 @@ int	main()
 	//GL_STREAM_DRAW ：数据每次绘制时都会改变。
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
@@ -149,11 +150,9 @@ int	main()
 		glClear(GL_COLOR_BUFFER_BIT);
 		//激活着色器程序
 		glUseProgram(shaderProgram);
-		// 更新uniform颜色
-		float timeValue = glfwGetTime();
-		float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-		int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+		
+		//绑定VAO
+		glBindVertexArray(VAO);
 		//绘制三角形
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
@@ -161,11 +160,10 @@ int	main()
 		glfwPollEvents();//检查有没有触发事件（键盘输入、鼠标移动等）、更新窗口状态，并调用对应的回调函数
 	}
 
+	//释放资源
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteProgram(shaderProgram);
-
-	//释放资源
 	glfwTerminate();
 	return 0;
 }
