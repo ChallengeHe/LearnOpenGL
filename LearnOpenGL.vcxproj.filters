@@ -55,6 +55,12 @@
     <Filter Include="源文件\1.getting_started\3.6.shaders_exercise3">
       <UniqueIdentifier>{584a2f9a-abf7-4b0d-b131-f682b9f476d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\1.getting_started\4.1.textures">
+      <UniqueIdentifier>{4d502949-20b6-417f-a179-9c4a2baed845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\1.getting_started\4.2.textures_combined">
+      <UniqueIdentifier>{2c092648-b6b9-40e1-bd78-e6b2afe03960}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Download\glad\src\glad.c">
@@ -99,9 +105,27 @@
     <ClCompile Include="shaders_exercise3.cpp">
       <Filter>源文件\1.getting_started\3.6.shaders_exercise3</Filter>
     </ClCompile>
+    <ClCompile Include="textures.cpp">
+      <Filter>源文件\1.getting_started\4.1.textures</Filter>
+    </ClCompile>
+    <ClCompile Include="std_image.cpp">
+      <Filter>源文件\1.getting_started\4.1.textures</Filter>
+    </ClCompile>
+    <ClCompile Include="textures_combined.cpp">
+      <Filter>源文件\1.getting_started\4.2.textures_combined</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader_s.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -129,6 +153,18 @@
     </None>
     <None Include="3.6.shader.fs">
       <Filter>源文件\1.getting_started\3.6.shaders_exercise3</Filter>
+    </None>
+    <None Include="4.1.textures.vs">
+      <Filter>源文件\1.getting_started\4.1.textures</Filter>
+    </None>
+    <None Include="4.1.textures.fs">
+      <Filter>源文件\1.getting_started\4.1.textures</Filter>
+    </None>
+    <None Include="4.2.textures_combined.vs">
+      <Filter>源文件\1.getting_started\4.2.textures_combined</Filter>
+    </None>
+    <None Include="4.2.textures_combined.fs">
+      <Filter>源文件\1.getting_started\4.2.textures_combined</Filter>
     </None>
   </ItemGroup>
 </Project>
